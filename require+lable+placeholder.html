@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>require+lable+placeholder</title>
+</head>
+<body>
+    <script>
+        function setValue() {
+            var label=document.getElementById("label2");
+            var textbox=label.control;
+            textbox.value="010010";
+
+        }
+        function Validate(){
+            var txtName = document.getElementById("txt_name");
+            var button = document.getElementById("btnValidate");
+            var form = document.getElementById("testform");
+            if(txtName.value.trim()==""){
+                var label=document.createElement("label");
+                label.setAttribute("for","txt_name");
+                form.insertBefore(label,button);
+                txtName.labels[1].innerHTML="请输入姓名";
+                txtName.labels[1].setAttribute("style","font-size:9px;color:red");
+            }
+        }
+    </script>
+    <input type="text" placeholder="请输入用户名">
+    <form>
+        <input type="text" name="greeting" list="greetings">
+        <datalist id="greetings" style="display:none">
+            <option value="html">html</option>
+            <option value="css">css</option>
+            <option value="js">js</option>
+
+        </datalist>
+    </form>
+    <form  id="testform"  action="qianduanzj.html">
+        <label id="label" for="txt_name">姓名：</label>
+        <input id="txt_name">
+        <input type="button" id="btnValidate" value="验证" onclick="Validate()">
+        <input type="text" required="required">
+        <br/>
+        require必需填写
+        <button type="submit">提交</button>
+    </form>
+    <form>
+        <label id="label2">
+            邮编：
+            <input id="txt_zip" maxlength="6">
+            <small>请输入六位数字</small>
+        </label>
+        <input type="button" value="设置默认值" onclick="setValue()">
+    </form>
+    <input type="text" name="greet" autocomplete="" list="greetings">
+</body>
+</html>
